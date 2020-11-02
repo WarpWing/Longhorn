@@ -27,6 +27,7 @@ def apiinfo():
     return '''<p>Welcome to the API v1 Endpoint </p>
 <p>This is the API v1 Endpoint. You can get information outputted in JSON from the following points </p>
 <p>Uptime: v1/uptime</p>
+<p>Server Statistics: v1/serverstats<p/>
 <p>This page was made by <a href="https://github.com/WarpWing/APIPlayground" target="_blank" rel="noopener">WarpWing</a></p> 
 ''' 
 
