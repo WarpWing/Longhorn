@@ -6,11 +6,11 @@ app = flask.Flask(__name__)
 app.config["DEBUG"] = True
 
 #Test Data
-books = [
+up = [
     {'uptime': 0,
 }] 
 
-serverstats = [
+serverstat = [
     {'serveros': 'linux',
 }]
 
@@ -33,11 +33,11 @@ def apiinfo():
 
 @app.route('/api/v1/uptime', methods=['GET'])
 def uptime():
-    return jsonify(books) 
+    return jsonify(up) 
 
 @app.route('/api/v1/serverstats', methods=['GET'])
 def serverstats():
-    return jsonify(serverstats)
+    return jsonify(serverstat)
 
 
 app.run()
