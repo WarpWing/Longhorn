@@ -38,7 +38,17 @@ def uptime():
 
 @app.route('/api/v1/serverstats', methods=['GET'])
 def serverstats():
-    return jsonify(serverstat)
+    return jsonify(serverstat) 
+
+@app.route("/api/v1/health")
+def health_check():
+    status = {"status": "healthy"}
+    if status['status'] != "healthy":
+        return_code = 301
+    else:
+        return_code = 200
+    return flask.jsonify(status), return_code
+#YOINK thx Matthew
 
 
 app.run()
