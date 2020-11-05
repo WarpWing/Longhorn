@@ -48,7 +48,5 @@ def health_check():
     else:
         return_code = 200
     return flask.jsonify(status), return_code
-#YOINK thx Matthew
-
 
 app.run()
