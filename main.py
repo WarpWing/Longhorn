@@ -9,7 +9,7 @@ app.config["DEBUG"] = True
 up = [
     {'uptime': 0,
 }] 
-
+# Dict json will be retired soon
 serverstat = [
     {'serveros': 'linux',
 }]
