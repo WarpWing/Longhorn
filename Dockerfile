@@ -1,5 +1,5 @@
 FROM python:3
-LABEL "repository"="https://github.com/WarpWing/APIPlayground"
+LABEL "repository"="https://github.com/WarpWing/Longhorn"
 LABEL "maintainer"="Ty Chermsirivatana"
 WORKDIR /usr/src/app
 COPY requirements.txt ./
