@@ -15,7 +15,7 @@ jobs:
     - name: Publish to Dockerhub
       uses: elgohr/Publish-Docker-Github-Action@master
       with:
-        name: warpwing/prod
+        name: warpwing/longhornprod
         username: ${{ secrets.ACTOR }}
         password: ${{ secrets.GITTOKEN }}
         dockerfile: Dockerfile
