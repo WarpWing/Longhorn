@@ -1,4 +1,4 @@
-name: Longhorn Python Build
+name: Longhorn Main Build
 
 on:
   push:
@@ -24,4 +24,17 @@ jobs:
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: Lint with Pylint
       run: |
-         pylint *.py || exit 0
+         pylint *.py || exit 0 
+         
+    - uses: actions/checkout@v2
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile --tag longhornprod:latest 
+     
+    - name: Publish to Dockerhub
+      uses: elgohr/Publish-Docker-Github-Action@master
+      with:
+        name: warpwing/longhornprod
+        username: ${{ secrets.ACTOR }}
+        password: ${{ secrets.GITTOKEN }}
+        dockerfile: Dockerfile
+        tags: latest 
