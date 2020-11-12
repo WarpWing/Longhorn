@@ -30,11 +30,3 @@ jobs:
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag longhornprod:latest 
      
-    - name: Publish to Dockerhub
-      uses: elgohr/Publish-Docker-Github-Action@master
-      with:
-        name: warpwing/longhornprod
-        username: ${{ secrets.ACTOR }}
-        password: ${{ secrets.GITTOKEN }}
-        dockerfile: Dockerfile
-        tags: latest 
