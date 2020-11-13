@@ -48,6 +48,5 @@ def health_check():
         return_code = 200
     return flask.jsonify(status), return_code
 
-
 if __name__ == '__main__':
     app.run(host='0.0.0.0')
