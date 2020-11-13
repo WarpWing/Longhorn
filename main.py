@@ -6,13 +6,9 @@ app = flask.Flask(__name__)
 app.config["DEBUG"] = True
 
 #Test Data
-up = [
-    {'uptime': 1,
-}] 
+up = {"uptime": "1"}
 # Dict json will be retired soon
-serverstat = [
-    {'serveros': 'linux',
-}]
+serverstat = {"OS": "Linux"}
 
 @app.route('/', methods=['GET'])
 def home():
