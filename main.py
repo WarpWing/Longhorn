@@ -19,7 +19,7 @@ def home():
     return '''<p>Welcome to my prototype API Page </p>
 <p>There shouldn't be much to the frontend other than a few plain words. I would say that this should concern the backend more.</p>
 <p>&nbsp;</p>
-<p>This page was made by <a href="https://github.com/WarpWing/APIPlayground" target="_blank" rel="noopener">WarpWing</a></p> 
+<p>This page was made by <a href="https://github.com/WarpWing/Longhorn" target="_blank" rel="noopener">WarpWing</a></p> 
 '''
 
 @app.route('/api/v1/', methods=['GET'])
@@ -28,7 +28,8 @@ def apiinfo():
 <p>This is the API v1 Endpoint. You can get information outputted in JSON from the following points </p>
 <p>Uptime: v1/uptime</p>
 <p>Server Statistics: v1/serverstats<p/>
-<p>This page was made by <a href="https://github.com/WarpWing/APIPlayground" target="_blank" rel="noopener">WarpWing</a></p> 
+<p>Health Check: v1/health<p/>
+<p>This page was made by <a href="https://github.com/WarpWing/Longhorn" target="_blank" rel="noopener">WarpWing</a></p> 
 ''' 
 
 
