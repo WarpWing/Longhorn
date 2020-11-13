@@ -20,9 +20,6 @@ jobs:
         python3 -m pip install --upgrade pip
         pip install flake8 pylint
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-    - name: Lint with Pylint
-      run: |
-         pylint *.py || exit 0 
          
     - uses: actions/checkout@v2
     - name: Build the Docker image
