@@ -27,7 +27,7 @@ def home():
 @app.route('/api/v1/', methods=['GET'])
 def apiinfo():
     return '''<p>Welcome to the API v1 Endpoint </p>
-<p>This is the API v1 Endpoint. You can get information outputted in JSON from the following points </p>
+<p>This is the API v1 Endpoint. You can get information outputted in JSON from the following endpoints </p>
 <p>Uptime: v1/uptime</p>
 <p>Server Statistics: v1/serverstats<p/>
 <p>Health Check: v1/health<p/>
