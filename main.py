@@ -41,8 +41,8 @@ def server_stats():
 
 @app.route("/api/v1/health")
 def health_check():
-    status = {"status": "healthy"}
-    if status['status'] != "healthy":
+    status = {"status": "health"}
+    if status['status'] != "health":
         return_code = 301
     else:
         return_code = 200
