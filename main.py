@@ -36,7 +36,7 @@ def uptime():
     return jsonify(up) 
 
 @app.route('/api/v1/serverstats', methods=['GET'])
-def serverstats():
+def server_stats():
     return jsonify(serverstat) 
 
 @app.route("/api/v1/health")
