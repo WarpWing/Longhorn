@@ -27,7 +27,11 @@ jobs:
     - uses: actions/checkout@v2
     - name: Build the Docker image
       run: sudo docker build . --file Dockerfile --tag longhornprod:latest  
-    - name: Restart the Docker Container
-      run: sudo docker restart Longhorn
+    - name: Stop Docker Container
+      run: sudo docker stop Longhorn
+    - name: Remove Docker Container
+      run: sudo docker rm Longhorn 
+    - name: Regenerate Docker Container
+      run: sudo docker run -p 5000:5000 -d --name=Longhorn longhornprod:latest
     
      
