@@ -7,7 +7,7 @@ app.config["DEBUG"] = True
 
 #Test Data
 up = [
-    {'uptime': 0,
+    {'uptime': 1,
 }] 
 # Dict json will be retired soon
 serverstat = [
