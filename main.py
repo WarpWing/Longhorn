@@ -1,5 +1,7 @@
 import flask
 import json
+import cyberbrain
+from cyberbrain import trace
 from flask import request, jsonify
 
 app = flask.Flask(__name__)
@@ -10,7 +12,9 @@ up = {"uptime": "1"}
 # Dict json will be retired soon
 serverstat = {"OS": "Linux"}
 
+
 @app.route('/', methods=['GET'])
+@trace
 def home():
     return '''<p>Welcome to my prototype API Page </p>
 <p>There shouldn't be much to the frontend other than a few plain words. I would say that this should concern the backend more.</p>
