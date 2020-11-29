@@ -53,4 +53,5 @@ def health_check():
     return flask.jsonify(status), return_code
 
 if __name__ == '__main__':
+    app.run(ssl_context=('cert.pem', 'key.pem'))
     app.run(host='0.0.0.0')

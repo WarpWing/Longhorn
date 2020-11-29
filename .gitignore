@@ -130,3 +130,5 @@ dmypy.json
 .vscode/settings.json
 # VSCode Settings 
 .vscode/
+cert.pem
+key.pem
