@@ -1,7 +1,5 @@
 import flask
 import json
-import cyberbrain
-from cyberbrain import trace
 from flask import request, jsonify
 
 app = flask.Flask(__name__)
@@ -14,7 +12,6 @@ serverstat = {"OS": "Linux"}
 
 
 @app.route('/', methods=['GET'])
-@trace
 def home():
     return '''<p>Welcome to my prototype API Page </p>
 <p>There shouldn't be much to the frontend other than a few plain words. I would say that this should concern the backend more.</p>
@@ -53,5 +50,5 @@ def health_check():
     return flask.jsonify(status), return_code
 
 if __name__ == '__main__':
-    app.run(ssl_context=('cert.pem', 'key.pem'))
+    #app.run(ssl_context=('cert.pem', 'key.pem'))
     app.run(host='0.0.0.0')
