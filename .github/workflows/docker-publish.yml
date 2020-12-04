@@ -1,0 +1,24 @@
+name: Longhorn Image CI
+
+on:
+  push:
+    # Publish `main` as Docker `latest` image.
+    branches:
+      - main
+
+jobs:
+  Deploy-Phase:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push'
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Build image
+        run: docker build . --file Dockerfile --tag warpwing/longhornprod:latest
+
+      - name: Log into registry
+        run: echo "${{ secrets.GITTOKEN }}" | docker login docker.io -u warpwing --password-stdin
+
+      - name: Push image
+        run: docker push warpwing/longhornprod:latest
