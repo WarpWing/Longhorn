@@ -7,8 +7,21 @@ app.config["DEBUG"] = True
 
 #Test Data
 up = {"uptime": "1"}
-# Dict json will be retired soon
 serverstat = {"OS": "Linux"}
+x = {
+   "Salt" : "2/3 Tablespoon",
+   "Thyme" : "1/2 Tablespoon",
+   "Basil" :  "1/2 Tablespoon",
+   "Oregano" : "1/3 Tablespoon",
+   "Celery Salt" : "1/3 Tablespoon",
+   "Black Pepper": "1 Tablespoon",
+   "Dry Mustard" : "1 Tablespoon", 
+   "Paprika" : "3 Tablespoon", 
+   "Garlic Salt" : "2 Tablespoon",
+   "Ground Ginger" : "1 Tablespoon",
+   "White Pepper" : "3 Tablespoon",
+   "MSG" : "A LOT"
+}
 
 
 @app.route('/', methods=['GET'])
@@ -50,6 +63,10 @@ def health_check():
     else:
         return_code = 200
     return flask.jsonify(status), return_code
+
+@app.route("/api/v1/kfc")
+def kfc():
+    return jsonify(x)
 
 if __name__ == '__main__':
     #app.run(ssl_context=('cert.pem', 'key.pem'))
