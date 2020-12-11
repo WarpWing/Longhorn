@@ -1,4 +1,4 @@
-name: Longhorn Image CI
+name: Longhorn CI/CD Pipeline
 
 on:
   push:
