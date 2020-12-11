@@ -24,7 +24,7 @@ jobs:
 
   Deploy-Phase:
       runs-on: self-hosted 
-      needs: Test-Phase
+      needs: Build-Phase
       steps: 
         - name: Change to home directory for kubectl configuration 
           run: cd /home/warpwing
