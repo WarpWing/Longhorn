@@ -43,6 +43,7 @@ def apiinfo():
 <p>Uptime: v1/uptime</p>
 <p>Server Statistics: v1/serverstats<p/>
 <p>Health Check: v1/health<p/>
+<p>KFC Spices: v1/kfc<p/>
 <p>This page was made by <a href="https://github.com/WarpWing/Longhorn" target="_blank" rel="noopener">WarpWing</a></p> 
 ''' 
 
