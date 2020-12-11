@@ -20,7 +20,6 @@ x = {
    "Garlic Salt" : "2 Tablespoon",
    "Ground Ginger" : "1 Tablespoon",
    "White Pepper" : "3 Tablespoon",
-   "MSG" : "A LOT"
 }
 
 
