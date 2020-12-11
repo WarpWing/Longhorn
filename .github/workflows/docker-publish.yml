@@ -6,11 +6,10 @@ on:
     branches:
       - main
 
-jobs:
-  Deploy-Phase:
+jobs: 
+  Build-Phase:
     runs-on: ubuntu-latest
     if: github.event_name == 'push'
-
     steps:
       - uses: actions/checkout@v2
 
@@ -21,4 +20,14 @@ jobs:
         run: echo "${{ secrets.GITTOKEN }}" | docker login docker.io -u warpwing --password-stdin
 
       - name: Push image
-        run: docker push warpwing/longhornprod:latest
+        run: docker push warpwing/longhornprod:latest 
+
+  Deploy-Phase:
+      runs-on: self-hosted 
+      needs: Test-Phase
+      steps: 
+        - name: Change to home directory for kubectl configuration 
+          run: cd /home/warpwing
+        - name: Rollout changes to Kubernetes via Kubectl 
+          run: kubectl rollout restart deployment longhorn
+
