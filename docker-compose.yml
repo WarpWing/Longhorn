@@ -1,8 +1,15 @@
 version: "3.9"
-services:
+services: 
+  redis:
+    container_name: Redis
+    image: "redis:alpine"
+    ports: 
+    - "6379:6379"
   web:
+    container_name: Longhorn
     build: .
     ports:
       - "5050:5050"
-  redis:
-    image: "redis:alpine"
+    depends_on:
+      - redis
+
