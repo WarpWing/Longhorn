@@ -4,7 +4,7 @@ import redis
 import time
 
 app = FastAPI()
-cache = redis.Redis(host='redis', port=6379)
+cache = redis.Redis(host='0.0.0.0', port=6379)
 
 def get_hit_count():
     retries = 5
@@ -20,7 +20,7 @@ def get_hit_count():
 @app.get('/')
 def hello():
     count = get_hit_count()
-    return 'Hello World! I have been seen {} times.\n'.format(count)
+    return 'Hello World! I have been seen {} times.'.format(count)
 
 
 
