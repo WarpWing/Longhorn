@@ -8,6 +8,7 @@ import markdown
 import jinja2
 import aiofiles
 
+# Use this command to start the application: uvicorn main:app --host 0.0.0.0 --port 5050
 app = FastAPI()
 cache = redis.Redis(host='0.0.0.0', port=6379)
 templates = Jinja2Templates(directory='static/')
