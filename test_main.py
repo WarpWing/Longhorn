@@ -1,6 +1,5 @@
-from fastapi.testclient import TestClient
-import sys
-from mainlink import app
+from fastapi.testclient import TestClient # Use the command to start unit tests: pytest -q --maxfail=2 --tb=line
+from main import app
 
 client = TestClient(app)
 
