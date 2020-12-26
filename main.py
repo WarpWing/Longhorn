@@ -35,7 +35,11 @@ def main(request: Request): # This code makes no sense don't worry. This is some
 @app.get('/hits') # Main Function
 def hello():
     count = get_hit_count()
-    return 'Hello World! I have been seen {} times.'.format(count)
+    return 'Hello World! I have been seen {} times.'.format(count) 
 
+@app.get('/kfc')
+def kfc():
+    kfc = {"Salt" : "2/3 Tablespoon","Thyme" : "1/2 Tablespoon","Basil" :  "1/2 Tablespoon","Oregano" : "1/3 Tablespoon","Celery Salt" : "1/3 Tablespoon","Black Pepper": "1 Tablespoon","Dry Mustard" : "1 Tablespoon","Paprika" : "3 Tablespoon","Garlic Salt" : "2 Tablespoon","Ground Ginger" : "1 Tablespoon","White Pepper" : "3 Tablespoon","MSG" : "1 Teaspoon"}
+    return kfc
 
 
