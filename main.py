@@ -1,5 +1,5 @@
 from typing import Optional
-from fastapi import FastAPI, Request, Form
+from fastapi import Depends, FastAPI, Request, Form, HTTPException, status
 from fastapi.templating import Jinja2Templates
 from starlette.responses import FileResponse
 import redis 
@@ -9,6 +9,7 @@ import jinja2
 import aiofiles
 
 # Use this command to start the application: uvicorn main:app --host 0.0.0.0 --port 5050
+# Misc array of Variables and Class Instances
 app = FastAPI()
 cache = redis.Redis(host='0.0.0.0', port=6379)
 templates = Jinja2Templates(directory='static/')
@@ -35,11 +36,13 @@ def main(request: Request): # This code makes no sense don't worry. This is some
 @app.get('/hits') # Main Function
 def hello():
     count = get_hit_count()
-    return 'Hello World! I have been seen {} times.'.format(count) 
+    return 'Hello World! I have been seen {} times.'.format(count) # Will reformat to JSON
 
 @app.get('/kfc')
 def kfc():
     kfc = {"Salt" : "2/3 Tablespoon","Thyme" : "1/2 Tablespoon","Basil" :  "1/2 Tablespoon","Oregano" : "1/3 Tablespoon","Celery Salt" : "1/3 Tablespoon","Black Pepper": "1 Tablespoon","Dry Mustard" : "1 Tablespoon","Paprika" : "3 Tablespoon","Garlic Salt" : "2 Tablespoon","Ground Ginger" : "1 Tablespoon","White Pepper" : "3 Tablespoon","MSG" : "1 Teaspoon"}
-    return kfc
+    return kfc 
+
+
 
 

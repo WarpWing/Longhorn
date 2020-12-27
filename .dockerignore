@@ -136,3 +136,4 @@ key.pem
 Terraform/.terraform/*
 Terraform/.terraform/plugins/selections.json
 K3Config/* 
+.github/*
