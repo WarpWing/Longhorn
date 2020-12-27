@@ -5,3 +5,4 @@ markdown
 aiofiles
 lolcat
 pytest
+jinja2
