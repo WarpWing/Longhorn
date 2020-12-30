@@ -2,9 +2,9 @@ version: "3.9"
 services: 
   redis:
     container_name: Redis
-    image: "redis:alpine"
+    image: "redislabs/rejson:latest"
     ports: 
-    - "6379:6379"
+    - "6000:6379"
   web:
     container_name: Longhorn
     build: .
