@@ -7,7 +7,7 @@ services:
     - "6379:6000"
   web:
     container_name: Longhorn
-    build: .
+    image: "warpwing/longhorn:latest"
     ports:
       - "5050:5050"
     depends_on:
