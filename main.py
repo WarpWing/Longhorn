@@ -37,7 +37,7 @@ def main(request: Request): # This code makes no sense don't worry. This is some
 def hello():
     count = get_hit_count()
     hits = '{"hitCounter":"%d"}' % (count)
-    return hits 
+    return hits # I need to find a way to insert JSON somehow into this.... will work on
 
 @app.get('/kfc') # I need to figure out how to get JSON into Redis. I don't understand the Redis Docs but we learn somehome :)
 def kfc():
