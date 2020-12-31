@@ -36,7 +36,8 @@ def main(request: Request): # This code makes no sense don't worry. This is some
 @app.get('/hits') # Main Function
 def hello():
     count = get_hit_count()
-    return 'Hello World! I have been seen {} times.'.format(count) # Will reformat to JSON
+    hits = '{"hitCounter":"%d"}' % (count)
+    return hits 
 
 @app.get('/kfc') # I need to figure out how to get JSON into Redis. I don't understand the Redis Docs but we learn somehome :)
 def kfc():
