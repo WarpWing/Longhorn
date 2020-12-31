@@ -1,2 +1,2 @@
-redis-py 
+redis
 json
