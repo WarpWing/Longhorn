@@ -13,5 +13,5 @@ class JsonInject:
         self.target = target 
 
 #JSON Test 
-cache.execute_command('JSON.SET', 'object', '.', json.dumps(KFC))
+cache.execute_command(f'JSON.SET', 'object', '.', json.dumps(KFC))
 reply = json.loads(cache.execute_command('JSON.GET', 'object'))

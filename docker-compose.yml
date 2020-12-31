@@ -4,7 +4,7 @@ services:
     container_name: Redis
     image: "redislabs/rejson:latest"
     ports: 
-    - "6000:6379"
+    - "6379:6000"
   web:
     container_name: Longhorn
     build: .
