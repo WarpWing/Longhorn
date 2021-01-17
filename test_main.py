@@ -10,6 +10,7 @@ def test_read_main():
 def test_read_hits():
     response = client.get("/hits")
     assert response.status_code == 200 # Does a Status Code Check 
+    assert response.headers.get('content-type') == 'application/json' # Does a check on content type to ensure the response is JSON
 
 def test_read_kfc(): 
     response = client.get("/kfc")

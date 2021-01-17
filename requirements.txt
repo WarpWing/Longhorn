@@ -1,8 +1,7 @@
-fastapi
+fastapi[all]
 uvicorn[standard]
 redis
 markdown
 aiofiles
-lolcat
 pytest
 jinja2
