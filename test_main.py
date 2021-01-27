@@ -1,5 +1,6 @@
 from fastapi.testclient import TestClient # Use the command to start unit tests: pytest --maxfail=2 --tb=line
 from main import app
+import requests 
 
 client = TestClient(app)
 
