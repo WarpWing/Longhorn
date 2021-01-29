@@ -1,4 +1,4 @@
-FROM python:3
+FROM python:3-alpine3.8
 LABEL "repository"="https://github.com/WarpWing/Longhorn"
 LABEL "maintainer"="Ty Chermsirivatana"
 WORKDIR /usr/src/app
