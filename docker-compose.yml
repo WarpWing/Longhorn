@@ -2,12 +2,12 @@ version: "3.9"
 services: 
   redis:
     container_name: Redis
-    image: "redis/redis:latest"
+    image: "redis:alpine"
     ports: 
     - "6379:6000"
-  web:
+  main:
     container_name: Longhorn
-    image: "warpwing/longhorn:latest"
+    image: .
     ports:
       - "5050:5050"
     depends_on:
