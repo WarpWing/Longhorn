@@ -15,7 +15,7 @@ import aiofiles
 print("uvicorn main:app --port 5050")
 # Misc array of Variables and Class Instances
 app = FastAPI()
-cache = redis.Redis(host='0.0.0.0', port=6379)
+cache = redis.Redis(host='0.0.0.0', port=6000)
 templates = Jinja2Templates(directory='static/')
 # Actual Backend Logic 
 def add_redis(obj): # General increase or adding values to Redis objects and values. Must be a str.
@@ -84,7 +84,7 @@ async def hello():
     return Response(content=hits, media_type="application/json") 
 
 @app.get('/kfc') 
-async def kfc(token: str = Depends(oauth2_scheme)):
+async def kfc():
     kfc = get_redis('kfc')
     return Response(content=kfc, media_type="application/json") 
 

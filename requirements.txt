@@ -1,7 +1,8 @@
-fastapi[all]
-uvicorn[standard]
+#fastapi
+#uvicorn[standard] 
 redis
 markdown
 aiofiles
 pytest
 jinja2
+# FastAPI and Uvicorn are marked because these are already bundled into the Docker Build
