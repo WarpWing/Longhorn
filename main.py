@@ -14,8 +14,8 @@ import aiofiles
 # Use this command to start the application: uvicorn main:app --host 0.0.0.0 --port 5050
 print("uvicorn main:app --port 5050")
 # Misc array of Variables and Class Instances
-app = FastAPI()
-cache = redis.Redis(host='0.0.0.0', port=6000)
+app = FastAPI(root_path="/api")
+cache = redis.Redis(host='0.0.0.0', port=6379)
 templates = Jinja2Templates(directory='static/')
 # Actual Backend Logic 
 def add_redis(obj): # General increase or adding values to Redis objects and values. Must be a str.
