@@ -24,15 +24,11 @@ def redischeck():
     except (redis.exceptions.ConnectionError, ConnectionRefusedError):
         return False
 
-status = redischeck()
-
 if redischeck():
    cache = redis.Redis(host='0.0.0.0', port=6379)
 else: 
    cache = redis.Redis(host='0.0.0.0', port=6000)
     
-    
-
 
 def add_redis(obj): # General increase or adding values to Redis objects and values. Must be a str.
     retries = 10
@@ -60,7 +56,7 @@ def set_redis(obj): # General setting function for getting Redis Objects and Val
     retries = 10
     while True:
         try:
-            return cache.get(obj)
+            return cache.set(obj)
         except redis.exceptions.ConnectionError as exc:
             if retries == 0:
                 raise exc
