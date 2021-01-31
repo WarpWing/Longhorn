@@ -11,27 +11,26 @@ import markdown
 import jinja2
 import aiofiles
 
-# Use this command to start the application: uvicorn main:app --host 0.0.0.0 --port 5050
-print("uvicorn main:app --port 5050")
+# Use this command to start the application: uvicorn main:app --port 5050
 # Misc array of Variables and Class Instances
 app = FastAPI(root_path="/api")
 cache = redis.Redis(host='0.0.0.0', port=6379)
 templates = Jinja2Templates(directory='static/')
 # Actual Backend Logic for Redis Functions 
-is_redis_available(cache)
-def is_redis_available(r):
-    try:
-        r.ping()
-        print("Redis is loaded on port 6379!")
+def redischeck():
+    try: 
+        cache.ping()
+        return True
     except (redis.exceptions.ConnectionError, ConnectionRefusedError):
-        print("Redis is not loaded on port 6379! Switching to alternative listening of port 6000")
-        return redis.Redis(host='0.0.0.0', port=6000)
-    return True
+        return False
 
-if is_redis_available(r):
-    cache = redis.Redis(host='0.0.0.0', port=6379) 
-else:
-    cache = redis.Redis(host='0.0.0.0', port=6000)
+status = redischeck()
+
+if redischeck():
+   cache = redis.Redis(host='0.0.0.0', port=6379)
+else: 
+   cache = redis.Redis(host='0.0.0.0', port=6000)
+    
     
 
 
