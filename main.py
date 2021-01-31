@@ -17,7 +17,24 @@ print("uvicorn main:app --port 5050")
 app = FastAPI(root_path="/api")
 cache = redis.Redis(host='0.0.0.0', port=6379)
 templates = Jinja2Templates(directory='static/')
-# Actual Backend Logic 
+# Actual Backend Logic for Redis Functions 
+is_redis_available(cache)
+def is_redis_available(r):
+    try:
+        r.ping()
+        print("Redis is loaded on port 6379!")
+    except (redis.exceptions.ConnectionError, ConnectionRefusedError):
+        print("Redis is not loaded on port 6379! Switching to alternative listening of port 6000")
+        return redis.Redis(host='0.0.0.0', port=6000)
+    return True
+
+if is_redis_available(r):
+    cache = redis.Redis(host='0.0.0.0', port=6379) 
+else:
+    cache = redis.Redis(host='0.0.0.0', port=6000)
+    
+
+
 def add_redis(obj): # General increase or adding values to Redis objects and values. Must be a str.
     retries = 10
     while True:
@@ -40,7 +57,16 @@ def get_redis(obj): # General retriever function for getting Redis Objects and V
             retries -= 1
             time.sleep(0.5) 
 
-
+def set_redis(obj): # General setting function for getting Redis Objects and Values. Can be any value or variable type
+    retries = 10
+    while True:
+        try:
+            return cache.get(obj)
+        except redis.exceptions.ConnectionError as exc:
+            if retries == 0:
+                raise exc
+            retries -= 1
+            time.sleep(0.5) 
 
 # Base User Model 
 class User(BaseModel):
