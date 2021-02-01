@@ -101,7 +101,7 @@ async def main(request: Request): # This code makes no sense don't worry. This i
 @app.get('/hits') # Main Function
 async def hello():
     count = add_redis('hits')
-    hits = '{"hitCounter":%d}' % (count)
+    hits = '{"hitCounter": %d}' % (count)
     return Response(content=hits, media_type="application/json") 
 
 @app.get('/kfc') 
