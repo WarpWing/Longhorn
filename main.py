@@ -63,33 +63,6 @@ def set_redis(obj): # General setting function for getting Redis Objects and Val
             retries -= 1
             time.sleep(0.5) 
 
-# Base User Model 
-class User(BaseModel):
-    username: str
-    email: Optional[str] = None
-    disabled: Optional[bool] = None 
-
-# Authentication code 
-oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
-
-def fake_decode_token(token): 
-    return User(
-        username=token + "fakedecoded", email="john@example.com", full_name="John Doe"
-    )
-
-
-async def get_current_user(token: str = Depends(oauth2_scheme)):
-    user = fake_decode_token(token)
-    return user
-
-# FastAPI Authentication Functions
-@app.get("/items/")
-async def read_items(token: str = Depends(oauth2_scheme)):
-    return {"token": token}
-
-@app.get("/users/me")
-async def read_users_me(current_user: User = Depends(get_current_user)):
-    return current_user
 # FastAPI General Endpoint Functions 
 @app.get('/')
 async def main(request: Request): # This code makes no sense don't worry. This is some experimental stuff for importing markdown into FastAPI
