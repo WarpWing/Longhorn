@@ -14,7 +14,8 @@ spec:
         app: longhorn
     spec:
       containers:
-      - image: nginx:latest
+      - image: xxxx:latest
         name: longhorn
         ports:
         - containerPort: 80
+        targetport: 80
