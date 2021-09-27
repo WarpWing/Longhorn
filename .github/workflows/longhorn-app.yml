@@ -28,7 +28,7 @@ jobs:
     - name: Test with Pytest
       run: |
         pytest --maxfail=2 --tb=line
-     - name: Docker Image Build and Push to External Registry
+    - name: Docker Image Build and Push to External Registry
       run: |
         docker build . -t 10.230.94.1:32000/longhorn:latest
         docker push 10.230.94.1:32000/longhorn:latest
