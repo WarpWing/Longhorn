@@ -19,3 +19,4 @@ def test_read_kfc():
     assert response.headers.get('content-type') == 'application/json' # Does a check on content type to ensure the response is JSON
 
 print("This is a Python Unit Test. Use the command to start unit tests: pytest --maxfail=2 --tb=line") # Outputs this if executed as a normal python file 
+
