@@ -4,9 +4,6 @@ import requests
 
 client = TestClient(app)
 
-def test_read_main():
-    response = client.get("/")
-    assert response.status_code == 200 # Does a Status Code Check 
 
 def test_read_hits():
     response = client.get("/hits")
