@@ -5,4 +5,5 @@ markdown
 aiofiles
 pytest
 jinja2
+requests
 # FastAPI and Uvicorn are marked because these are already bundled into the Docker Build
