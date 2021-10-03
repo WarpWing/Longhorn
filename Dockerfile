@@ -5,5 +5,5 @@ WORKDIR /usr/src/app
 COPY requirements.txt ./
 RUN pip3 install --no-cache-dir -r requirements.txt
 COPY . .
-EXPOSE 5050
-CMD ["uvicorn", "main:app", "--port", "5050"]
+EXPOSE 80
+CMD ["uvicorn", "main:app", "--port", "80"]
