@@ -30,6 +30,7 @@ else:
    cache = redis.Redis(host='0.0.0.0', port=6000)
     
 
+    
 def add_redis(obj): # General increase or adding values to Redis objects and values. Must be a str.
     retries = 10
     while True:
